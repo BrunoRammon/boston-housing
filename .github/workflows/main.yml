@@ -1,0 +1,34 @@
+name: Build and package regression model
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Authenticate with Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+    
+    - name: set auto-install of extensions
+      run: az config set extension.use_dynamic_install=yes_without_prompt
+
+    - name: attach workspace
+      run: az ml folder attach -w "pratical_mlops" -g "pratical_mlops"
+    
+    - name: retrieve the model
+      run: az ml model download -t "." --model-id "boston-housing-regression:1"
+    
+    - name: build flask-app container
+      uses: docker/build-push-action@v2
+      with:
+        context: ./
+        file: ./Dockefile
+        push: false
+        tags: bruno/flask-boston-housing:latest    
+
