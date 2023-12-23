@@ -15,14 +15,11 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     
-    # - name: set auto-install of extensions
-    #   run: az config set extension.use_dynamic_install=yes_without_prompt
-
-    - name: see azure version
-      run: az version
+    - name: set auto-install of extensions
+      run: az config set extension.use_dynamic_install=yes_without_prompt
       
     - name: install azure ml
-      run: az ml
+      run: az extension remove -n ml && az extension add -n ml
     
     - name: attach workspace
       run: az ml folder attach -w "pratical_mlops" -g "pratical_mlops"
