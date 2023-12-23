@@ -18,6 +18,9 @@ jobs:
     - name: set auto-install of extensions
       run: az config set extension.use_dynamic_install=yes_without_prompt
 
+    - name: see azure version
+      run: az version
+      
     - name: install azure ml
       run: az ml
     
