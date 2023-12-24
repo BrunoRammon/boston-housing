@@ -30,7 +30,7 @@ jobs:
       run: az ml model download -n "boston-housing-regression" -v "1" -g "practical_mlops" -w "pratical_mlops" -p "."
     
     - name: list current dir
-      run: ls .
+      run: ls ./boston-housing-regression
       
     - name: build flask-app container
       uses: docker/build-push-action@v5
