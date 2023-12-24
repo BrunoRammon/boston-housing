@@ -44,5 +44,5 @@ jobs:
       with:
         context: .
         push: true
-        tags: ghcr.io/bruno/flask-boston-housing:latest
+        tags: ghcr.io/BrunoRammon/boston-housing:latest
         
