@@ -43,6 +43,6 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
-        push: false
-        tags: bruno/flask-boston-housing:latest    
-
+        push: true
+        tags: ghcr.io/bruno/flask-boston-housing:latest
+        
