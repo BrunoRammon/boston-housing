@@ -32,8 +32,7 @@ jobs:
     - name: build flask-app container
       uses: docker/build-push-action@v5
       with:
-        context: ./
-        file: ./Dockefile
+        context: .
         push: false
         tags: bruno/flask-boston-housing:latest    
 
