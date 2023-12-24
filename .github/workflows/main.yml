@@ -27,7 +27,7 @@ jobs:
     # - name: retrieve the model
     #   run: az ml model download -t "." --model-id "boston-housing-regression:1"
     - name: retrieve the model
-      run: az ml model download -n "boston-housing-regression" -v "1" -g "practical_mlops" -w "practical_mlops"
+      run: az ml model download -n "boston-housing-regression" -v "1" -g "practical_mlops" -w "pratical_mlops"
     
     - name: build flask-app container
       uses: docker/build-push-action@v2
