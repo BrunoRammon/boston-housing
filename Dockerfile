@@ -9,7 +9,7 @@ COPY Pipfile.lock .
 RUN pipenv install --deploy
 
 COPY app.py .
-COPY boston_housing_prediction.joblib .
+COPY ./boston-housing-regression/boston_housing_prediction.joblib .
 
 EXPOSE 5000
 
